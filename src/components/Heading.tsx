@@ -1,9 +1,11 @@
 import styles from './Heading.module.css';
 
-export function Heading(props) {
+type HeadingProps = {
+  children: React.ReactNode;
+};
+
+export function Heading({ children }: HeadingProps) {
   /** const classes = `${styles.heading} ${styles.cyan}`;
-   * dá pra desestruturar classes css dessa forma tbm,
-   * ou utilizar tudo dentro de className */
-  console.log(props);
-  return <h1 className={styles.heading}>{props.children}</h1>;
+   * dá pra desestruturar classes css dessa forma tbm, ou utilizar tudo dentro de className */
+  return <h1 className={styles.heading}>{children}</h1>;
 }
