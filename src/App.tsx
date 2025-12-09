@@ -1,8 +1,8 @@
 import './styles/theme.css';
 import './styles/global.css';
 
-import { Container } from './components/Container';
-import { Heading } from './components/Heading';
+import { Heading } from './components/heading';
+import { Container } from './components/container';
 
 export function App() {
   return (
