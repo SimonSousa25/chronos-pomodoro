@@ -1,11 +1,11 @@
 import './styles/theme.css';
 import './styles/global.css';
 
-import { Container } from './components/container';
-import { Logo } from './components/logo';
-import { Menu } from './components/menu';
-import { CountDown } from './components/countDown';
-import { DefaultInput } from './components/defaultInput';
+import { Container } from './components/Container';
+import { Logo } from './components/Logo';
+import { Menu } from './components/Menu';
+import { CountDown } from './components/CountDown';
+import { DefaultInput } from './components/DefaultInput';
 import { Cycles } from './components/Cycles';
 
 export function App() {
