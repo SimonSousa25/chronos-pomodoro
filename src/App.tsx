@@ -1,23 +1,9 @@
 import { Home } from './pages/Home';
 import { useState } from 'react';
+import type { TaskStateModel } from './models/TaskStateModel';
 
 import './styles/theme.css';
 import './styles/global.css';
-
-import type { TaskStateModel } from './models/TaskStateModel';
-
-// export type TaskStateModel = {
-//   tasks: TaskModel[]; // histórico, MainForm
-//   secondsRemaining: number; // CountDown, Histórico, MainForm, Button
-//   formattedSecondsRemaining: string; // Título, CountDown
-//   activeTask: TaskModel | null; // // CountDown, Histórico, MainForm, Button
-//   currentCycle: number; // Home
-//   config: {
-//     workTime: number; // MainForm
-//     shortBreakTime: number; // MainForm
-//     longBreakTime: number; // MainForm
-//   };
-// };
 
 const initialState: TaskStateModel = {
   tasks: [],
@@ -33,7 +19,7 @@ const initialState: TaskStateModel = {
 };
 
 export function App() {
-  const [state, setState] = useState(initialState); // -> Aqui o typescript faz uma inferência de tipos para esse useState()
+  const [state, setState] = useState(initialState);
 
-  return <Home state={state} setState={setState} />;
+  return <Home />;
 }
