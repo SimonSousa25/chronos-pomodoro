@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
 import { PlayCircleIcon } from 'lucide-react';
 
 export function MainForm() {
-  function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault(); // O formulário não pode ser enviado pelo navegador
+  const [taskName, setTaskName] = useState('');
 
-    console.log('deu certo'.toUpperCase(), Date.now());
+  function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    console.log('DEU CERTO', taskName);
   }
 
   return (
@@ -18,6 +21,8 @@ export function MainForm() {
           id='meuInput'
           type='text'
           placeholder='digite algo'
+          value={taskName}
+          onChange={e => setTaskName(e.target.value)}
         />
       </div>
 
