@@ -7,7 +7,7 @@ export type TaskStateModel = {
   secondsRemaining: number; // CountDown, Histórico, MainForm, Button
   formattedSecondsRemaining: string; // Título, CountDown
   activeTask: TaskModel | null; // // CountDown, Histórico, MainForm, Button
-  currentCycle: number; // Home
+  currentCycle: number; // 1 a 8
   config: {
     workTime: number; // MainForm
     shortBreakTime: number; // MainForm
