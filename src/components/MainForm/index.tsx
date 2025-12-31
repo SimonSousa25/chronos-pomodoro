@@ -4,8 +4,14 @@ import { DefaultInput } from '../DefaultInput';
 import { PlayCircleIcon } from 'lucide-react';
 
 export function MainForm() {
+  function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault(); // O formulário não pode ser enviado pelo navegador
+
+    console.log('deu certo'.toUpperCase(), Date.now());
+  }
+
   return (
-    <form className='form' action=''>
+    <form onSubmit={handleCreateNewTask} className='form' action=''>
       <div className='formRow'>
         <DefaultInput
           labelText='task'
