@@ -12,6 +12,10 @@
   "editor.tabSize": 2,
   "explorer.compactFolders": false,
 
+  "workbench.iconTheme": "fira-code-material-icon-theme",
+  "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+
   // 🛠 Formatação e Lint
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
