@@ -41,6 +41,19 @@ export function MainForm() {
     };
 
     dispatchAction({ type: TaskActionTypes.START_TASK, payload: newTask });
+
+    const worker = new Worker(
+      new URL('../../workers/timerWorker.js', import.meta.url),
+    );
+
+    worker.postMessage('FAVOR'); // Método Assíncrono -> Sim, posso fazer um favor
+    worker.postMessage('FALA_OI'); // Método Assíncrono -> OK: OI!
+    worker.postMessage('BLABLABLA'); // Método Assíncrono -> Não entendi
+    worker.postMessage('FECHAR'); // Método Assíncrono -> Tá bom, vou fechar
+
+    worker.onmessage = function (event) {
+      console.log('PRINCIPAL recebeu:', event.data);
+    };
   }
 
   function handleInterruptTask() {
