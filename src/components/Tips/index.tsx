@@ -7,7 +7,6 @@ export function Tips() {
   const nextCycle = getNextCycle(state.currentCycle);
   const nextCycleType = getNextCycleType(nextCycle);
 
-  // Tips
   const tipsForWhenActiveTask = {
     workTime: (
       <span>
