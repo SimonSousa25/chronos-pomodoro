@@ -9,7 +9,7 @@ import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 import { Tips } from '../Tips';
-import { SingletonTimerWorkerManager } from '../../workers/SingletonTimerWorkerManager';
+import { showMessage } from '../../adapters/showMessage';
 
 export function MainForm() {
   const { state, dispatchAction } = useTaskContext();
@@ -21,13 +21,14 @@ export function MainForm() {
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    showMessage.dismiss();
 
     if (taskNameInput.current === null) return;
 
     const taskName = taskNameInput.current.value.trim();
 
     if (!taskName) {
-      alert('Digite o nome da tarefa');
+      showMessage.warn('Digite o nome da tarefa');
       return;
     }
 
@@ -43,15 +44,12 @@ export function MainForm() {
 
     dispatchAction({ type: TaskActionTypes.START_TASK, payload: newTask });
 
-    const worker = SingletonTimerWorkerManager.getInstance();
-
-    worker.onmessage(event => {
-      console.log('PRINCIPAL recebeu:', event.data);
-      worker.terminate();
-    });
+    showMessage.success('Tarefa iniciada');
   }
 
   function handleInterruptTask() {
+    showMessage.dismiss();
+    showMessage.error('Tarefa Interrompida!');
     dispatchAction({ type: TaskActionTypes.INTERRUPT_TASK });
   }
 
