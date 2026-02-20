@@ -8,10 +8,10 @@ import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { formatDate } from '../../utils/formatDate';
 import { getTaskStatus } from '../../utils/getTaskStatus';
 import { sortTasks, type SortTasksOptions } from '../../utils/sortTasks';
-
-import styles from './styles.module.css';
 import { showMessage } from '../../adapters/showMessage';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
+
+import styles from './styles.module.css';
 
 export function History() {
   const { state, dispatchAction } = useTaskContext();
@@ -46,6 +46,12 @@ export function History() {
 
     dispatchAction({ type: TaskActionTypes.RESET_STATE });
   }, [confirmClearHistory]);
+
+  useEffect(() => {
+    return () => {
+      showMessage.dismiss();
+    };
+  }, []);
 
   function handleSortTasks({ field }: Pick<SortTasksOptions, 'field'>) {
     const newDirection = sortTasksOptions.direction === 'desc' ? 'asc' : 'desc';
